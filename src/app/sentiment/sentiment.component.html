@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="title"> 
+        <div class="main-title">
+            <label>{{stockName?.description}} ( {{stockName?.symbol}})</label>
+        </div>
+        <div class="row">
+            <ng-conatiner *ngFor="let item of stockSentiment">
+                <div class="card"> 
+                    <span>{{item?.monthValue}} {{item?.year}}</span><br>
+                    <span>Change : {{item?.change}}</span> &nbsp;&nbsp;
+                    <span [ngClass]="getClass(item)">{{ item.change > 0 ? "&#129093;" : "&#129095;" }}</span><br>
+                    <span>MSPR : {{item?.mspr}}</span>
+                </div>
+            </ng-conatiner>
+        </div>
+        <div class="main-title">
+            <button class="fa fa-arrow-left" (click)="backBtn()">Back to list Of Stocks</button>
+        </div>
+    </div>
+</div>

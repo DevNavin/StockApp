@@ -1,0 +1,40 @@
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.title {
+    padding: 20px;
+}
+.main-title {
+    text-align: center;
+}
+.card {
+    box-shadow: rgb(0 0 0 / 6%) 0px 4px 12px;
+    border: 1px solid #c9c9c9;
+    white-space: nowrap;
+    width: 200px;
+    margin-top: 20px !important;
+    padding: 15px;
+    line-height: 25px;
+    border-radius: 12px;
+    margin: 0px 8px;
+}
+
+.green {
+    color: greenyellow;
+}
+
+.red {
+    color: red;
+}
+
+button {
+    padding: 7px 15px;
+    margin-top: 20px;
+    letter-spacing: 0.2px;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}

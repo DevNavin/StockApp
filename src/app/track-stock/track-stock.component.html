@@ -1,0 +1,50 @@
+<div class="body">
+    <div>
+      <h2>STOCK TRACKER</h2>
+      <div class="header">
+        <p class="lead">
+          Enter the symbol of a stock to track (i.e AAPL, TSLA, GOOGL).
+        </p>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <input
+        id="stockInput"
+        type="text"
+        onfocus="this.value=''"
+        class="form-control"
+        [(ngModel)]="inputValue"
+        maxlength="5"
+      />
+    </div>
+    <button (click)="getterStock()" [disabled]="!inputValue">Track Stock</button>
+  </div>
+  <!-- <div class="box" *ngIf="stocks">
+    <div>
+      {{ stockNames }} <span>{{ stocks.d > 0 ? "&#129093;" : "&#129095;" }}</span>
+    </div>
+    <div>Current Price: ${{ stocks.c }}</div>
+    <div>Change: ${{ stocks.d }}</div>
+    <div>Open price of the day: ${{ stocks.o }}</div>
+    <div>High Price of the day: ${{ stocks.h }}</div>
+  </div> -->
+
+  <div *ngIf="stocks">
+    <div style="float: left;" *ngFor="let stock of arr">
+     <div class="box">
+      <div>
+        {{ stock.stockName }}
+        <span [ngClass]="stock.changeToday > 0 ? 'green' : 'red'">{{ stock.changeToday > 0 ? "&#129093;" : "&#129095;" }}</span>
+      </div>
+      <div>Current Price: ${{ stock.currentPrice }}</div>
+      <div>Change: ${{ stock.changeToday }}</div>
+      <div>Open price of the day: ${{ stock.openingPrice }}</div>
+      <div>High Price of the day: ${{ stock.highest }}</div>
+     <div *ngIf="stockDetails">
+      <!--how to use router link-->
+      <a routerLink="/sentiment/{{stock.stockSymbol}}">See More Details</a>
+     </div>
+    </div>
+  </div>
+  </div>
